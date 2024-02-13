@@ -1,5 +1,3 @@
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,53 +6,44 @@ import java.util.StringTokenizer;
 
 public class Main {
     private static int N;
-    private static int[] arr;
-    private static int res =0;
+    private static long[] inputArr;
+    private static int res;
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
-        arr = new int[N];
+        inputArr = new long[N];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            arr[i] =Integer.parseInt(st.nextToken());
+            inputArr[i]=Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(arr);
-
-        for (int i = 0; i <N; i++) {
-            int now = arr[i];
-            int left = 0;
-            int right = N-1;
-
-            while (true){
-                if(i == left) left++;
-                if(i == right) right --;
-                if(right == left) break;
-
-
-
-                int tmp = arr[left] + arr[right];
-                if(tmp == now){
-                    //같은 경우 res++
-                    res++;
-                    break;
-                }
-
-                if(tmp > now){
-                    //크면 right --
-                    right--;
-                }else if(tmp < now){
-                    //작으면 left ++
-                    left++;
-                }
-
-
-            }
-
+        //정렬
+        Arrays.sort(inputArr);
+        
+        for (int i = 0; i < N; i++) {
+            pro(i);
         }
-
         System.out.println(res);
 
+    }
+    private static void pro(int index){
+        int left = 0;
+        int right = inputArr.length-1;
+        long now = inputArr[index];
+        while (true){
+            if(left == index) left++;
+            if(right== index) right--;
+            if(left>=right) return;
 
+            long tmp = inputArr[left] + inputArr[right];
+
+            if(tmp == now){
+                res++;
+                return;
+            }
+            if(tmp > now) right--;
+            else if(tmp < now) left++;
+        }
 
     }
 }
