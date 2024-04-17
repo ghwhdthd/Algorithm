@@ -13,9 +13,6 @@ public class Main {
     private static int INF = 1_000_000_001;
     private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static StringBuilder sb = new StringBuilder();
-    private static boolean[] visit;
-    private static int lastIndex;
-    private static int count;
     public static void main(String[] args) throws IOException {
 
         int T = Integer.parseInt(br.readLine());
@@ -49,7 +46,6 @@ public class Main {
             dp[i] = INF;
         }
 
-        count = 0;
         dijkstra(C);
         int infection = 0; // 총 감염되는 컴퓨터 수
         int total = 0; // 마지막 컴퓨터가 감염되기까지 걸리는 시간
@@ -66,15 +62,9 @@ public class Main {
     private static void dijkstra(int start){
         PriorityQueue<Node> pq = new PriorityQueue();
         dp[start] = 0;
-        visit  = new boolean[N+1];
         pq.add(new Node(start,0));
         while (!pq.isEmpty()){
             Node now = pq.poll();
-            lastIndex = now.index;
-            if(!visit[now.index]) {
-                count++;
-                visit[now.index] = true;
-            }
             for (int i = 0; i < li.get(now.index).size(); i++) {
                 Node next = li.get(now.index).get(i);
                 //start 부터 now까지의 최소 거리
