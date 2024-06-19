@@ -7,7 +7,6 @@ import java.util.StringTokenizer;
 
 public class Main {
     private static int[][] board;
-    private static int[][] tmp;
     private static int[][] visit;
     private static int N;
     private static int res;
@@ -18,7 +17,6 @@ public class Main {
         board = new int[N][N];
         visit = new int[N][N];
 
-        tmp = new int[N][N];
         StringTokenizer st;
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -51,9 +49,7 @@ public class Main {
         if(visit[r][c] == 0 && board[r][c] == 1){
             //현재 자리에 놓는 경우
             change(1, r, c );
-            tmp[r][c]++;
             white(nr, nc, count + 1);
-            tmp[r][c]--;
             change(0, r, c );
         }
         //현재 자리에 놓지 못하는 경우 + 놓지 않는 경우
@@ -79,9 +75,7 @@ public class Main {
         if(visit[r][c] == 0 && board[r][c] == 1){
             //현재 자리에 놓는 경우
             change(1, r, c );
-            tmp[r][c]++;
             black(nr, nc, count + 1);
-            tmp[r][c]--;
             change(0, r, c );
         }
         //현재 자리에 놓지 못하는 경우 + 놓지 않는 경우
