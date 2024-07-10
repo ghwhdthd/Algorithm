@@ -2,8 +2,8 @@
 
 select ID, FISH_NAME, LENGTH
 from FISH_INFO as A
-left join FISH_NAME_INFO as C
-on A.FISH_TYPE = C.FISH_TYPE
+left join FISH_NAME_INFO as D
+on A.FISH_TYPE = D.FISH_TYPE
 right join (select FISH_TYPE, max(LENGTH) as LEN
             from FISH_INFO
             group by FISH_TYPE) as B
