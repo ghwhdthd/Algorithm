@@ -9,18 +9,14 @@ class Solution {
         int r = 0;
         int l = 0;
         int now = sequence[0];
-        while(true){
-            if(r >= sequence.length) break;
+        
+        while(r <= sequence.length){
             if(l > r) break;
-            
-            // System.out.println(l + " " + r +  " " + now);
             if (now <= k){
                 if(now == k) pq.add(new Node(r, l, r-l));
                 r++;
                 if(r >= sequence.length) break;
                 now += sequence[r];
-                
-                
             }else{
                 now -= sequence[l];
                 l++;
