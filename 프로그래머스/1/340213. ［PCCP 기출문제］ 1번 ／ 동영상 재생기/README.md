@@ -1,10 +1,10 @@
 # [level 1] [PCCP 기출문제] 1번 / 동영상 재생기 - 340213 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/340213) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/340213#) 
 
 ### 성능 요약
 
-메모리: 85.6 MB, 시간: 16.91 ms
+메모리: 78.3 MB, 시간: 1.23 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 16일 16:15:23
+2024년 09월 16일 16:57:56
 
 ### 문제 설명
 
